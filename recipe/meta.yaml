@@ -1,17 +1,17 @@
 {% set name = "dkh" %}
 {% set version = "1.2" %}
-{% set sha256 = "37a31ce3fe211b62793db6a569c39142bbce37b8b418ca243c41db4329c1711a" %}
+{% set sha256 = "b8a1dc1df3161938890eb6ef97280a2e99d07f69d5e3b672c48fc4622a872030" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/psi4/{{ name|lower }}/archive/319b320.tar.gz
+  url: https://github.com/psi4/{{ name|lower }}/archive/3ba0128.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage('dkh', max_pin='x.x') }}
 
