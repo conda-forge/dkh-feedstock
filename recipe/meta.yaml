@@ -26,13 +26,10 @@ requirements:
     - ninja
   host:
     - libblas
-  run:
-    # I'm surprised the m2w64 compilers run_exports aren't imposing this: https://github.com/conda-forge/toolchain-feedstock/blob/main/recipe/meta.yaml#L15
-    - m2w64-gcc-libgfortran            # [win]
 
 test:
   requires:
-    - m2w64-binutils                                            # [win]   # provides objdump.exe
+    - binutils                                            # [win]   # provides objdump.exe
   commands:
     - ls -l $PREFIX/lib                                         # [unix]
     - ls -l $PREFIX/share/cmake/dkh                             # [unix]
