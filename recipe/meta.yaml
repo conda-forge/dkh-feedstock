@@ -11,24 +11,21 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 2
+  number: 3
   run_exports:
     - {{ pin_subpackage('dkh', max_pin='x.x') }}
 
 requirements:
   build:
     - {{ stdlib("c") }}
-    - {{ compiler('c') }}              # [unix]
-    - {{ compiler('fortran') }}        # [unix]
-    - {{ compiler('m2w64_c') }}        # [win]
-    - {{ compiler('m2w64_fortran') }}  # [win]
+    - {{ compiler("c") }}
+    - {{ compiler("fortran") }}
     - cmake
     - ninja
   host:
     - libblas
   run:
     # I'm surprised the m2w64 compilers run_exports aren't imposing this: https://github.com/conda-forge/toolchain-feedstock/blob/main/recipe/meta.yaml#L15
-    - m2w64-gcc-libgfortran            # [win]
 
 test:
   requires:
