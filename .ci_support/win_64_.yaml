@@ -1,9 +1,9 @@
 c_compiler:
-- vs2019
+- clang-cl
 c_stdlib:
 - vs
 channel_sources:
-- conda-forge/label/libint_dev,conda-forge
+- conda-forge
 channel_targets:
 - conda-forge main
 fortran_compiler:
