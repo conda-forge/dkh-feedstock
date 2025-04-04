@@ -34,10 +34,8 @@ test:
     # Verify library
     - test -f $PREFIX/lib/libdkh$SHLIB_EXT                      # [unix]
     - test ! -f $PREFIX/lib/libdkh.a                            # [unix]
-    - if not exist %PREFIX%\\Library\\lib\\libdkh.dll.a exit 1  # [win]   # gnu import lib
-    - if not exist %PREFIX%\\Library\\lib\\libdkh.lib exit 1    # [win]   # ms import lib
-    - if not exist %PREFIX%\\Library\\bin\\libdkh.dll exit 1    # [win]   # gnu/ms dyn lib
-    - if exist %PREFIX%\\Library\\lib\\libdkh.a exit 1          # [win]   # gnu static lib removed
+    - if not exist %PREFIX%\\Library\\lib\\dkh.lib exit 1       # [win]   # ms import lib
+    - if not exist %PREFIX%\\Library\\bin\\dkh.dll exit 1       # [win]   # ms dyn lib
     # Verify accessories
     - test -e $PREFIX/include/DKH/DKH_MANGLE.h                  # [unix]
     - test -e $PREFIX/share/cmake/dkh/dkhConfig.cmake           # [unix]
@@ -46,7 +44,7 @@ test:
     # Inspect linkage
     - ldd -v $PREFIX/lib/libdkh$SHLIB_EXT                       # [linux and build_platform == target_platform]
     - otool -L $PREFIX/lib/libdkh$SHLIB_EXT                     # [osx]
-    - '%OBJDUMP% -p %PREFIX%\\Library\\bin\\libdkh.dll | findstr /i "dll"'  # [win]
+    - '%OBJDUMP% -p %PREFIX%\\Library\\bin\\dkh.dll | findstr /i "dll"'  # [win]
 
 about:
   home: http://www.reiher.ethz.ch/software/dkh-x2c.html
