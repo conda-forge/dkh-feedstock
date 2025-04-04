@@ -10,6 +10,7 @@ cmake %CMAKE_ARGS% ^
       -D CMAKE_C_FLAGS="%CFLAGS%" ^
       -D CMAKE_Fortran_COMPILER="flang-new" ^
       -D CMAKE_Fortran_FLAGS="%FFLAGS%" ^
+      -D CMAKE_LINKER_TYPE=LLD ^
       -D CMAKE_INSTALL_LIBDIR="lib" ^
       -D CMAKE_INSTALL_INCLUDEDIR="include" ^
       -D CMAKE_INSTALL_BINDIR="bin" ^

@@ -1,2 +1,4 @@
-#c_compiler:    # [win]
-#  - clang-cl   # [win]
+c_compiler:                # [win]
+  - clang-cl               # [win]
+fortran_compiler_version:  # [win]
+  - 20                     # [win]
