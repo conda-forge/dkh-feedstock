@@ -22,8 +22,10 @@ requirements:
     - {{ compiler("fortran") }}
     - cmake
     - ninja
+    - libxml2
   host:
     - libblas
+    - libxml2
 
 test:
   commands:
