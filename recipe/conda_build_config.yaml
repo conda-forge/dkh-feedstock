@@ -1,2 +1,2 @@
-c_compiler:    # [win]
-  - clang-cl   # [win]
+#c_compiler:    # [win]
+#  - clang-cl   # [win]
