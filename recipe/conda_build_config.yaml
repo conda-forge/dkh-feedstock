@@ -2,5 +2,3 @@ c_compiler:                # [win]
   - vs2022                 # [win]
 fortran_compiler_version:  # [win]
   - 20                     # [win]
-libxml2:
-  - 2.13
