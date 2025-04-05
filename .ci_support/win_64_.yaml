@@ -12,7 +12,5 @@ fortran_compiler_version:
 - '20'
 libblas:
 - 3.9.* *netlib
-libxml2:
-- '2.13'
 target_platform:
 - win-64
