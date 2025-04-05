@@ -1,10 +1,7 @@
 @ECHO ON
 
-set "CC=gcc.exe"
-set "FC=gfortran.exe"
-
 cmake %CMAKE_ARGS% ^
-      -G "MinGW Makefiles" ^
+      -G "Ninja" ^
       -S %SRC_DIR% ^
       -B build ^
       -D CMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ^
@@ -17,8 +14,8 @@ cmake %CMAKE_ARGS% ^
       -D CMAKE_INSTALL_DATADIR="share" ^
       -D BUILD_SHARED_LIBS=ON ^
       -D CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON ^
-      -D CMAKE_GNUtoMS=ON ^
       -D ENABLE_OPENMP=OFF ^
+      -D CMAKE_POLICY_VERSION_MINIMUM=3.5 ^
       -D ENABLE_XHOST=OFF
 if errorlevel 1 exit 1
 
