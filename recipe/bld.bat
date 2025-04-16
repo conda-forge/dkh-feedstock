@@ -1,13 +1,9 @@
 @ECHO ON
 
-set "CC=gcc.exe"
-set "FC=gfortran.exe"
-
 cmake %CMAKE_ARGS% ^
-      -G "MinGW Makefiles" ^
+      -G "Ninja" ^
       -S %SRC_DIR% ^
       -B build ^
-      -D CMAKE_MAKE_PROGRAM="make" ^
       -D CMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ^
       -D CMAKE_BUILD_TYPE=Release ^
       -D CMAKE_C_FLAGS="%CFLAGS%" ^
