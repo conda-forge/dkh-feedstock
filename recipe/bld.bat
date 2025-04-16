@@ -16,6 +16,7 @@ cmake %CMAKE_ARGS% ^
       -D CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON ^
       -D CMAKE_GNUtoMS=ON ^
       -D ENABLE_OPENMP=OFF ^
+      -D CMAKE_POLICY_VERSION_MINIMUM=3.5 ^
       -D ENABLE_XHOST=OFF
 if errorlevel 1 exit 1
 
