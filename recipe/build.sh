@@ -13,6 +13,7 @@ ${BUILD_PREFIX}/bin/cmake ${CMAKE_ARGS} \
     -D BUILD_SHARED_LIBS=ON \
     -D LAPACK_LIBRARIES="${PREFIX}/lib/libblas${SHLIB_EXT}" \
     -D ENABLE_OPENMP=OFF \
+    -D CMAKE_POLICY_VERSION_MINIMUM=3.5 \
     -D ENABLE_XHOST=OFF
 
 cmake --build build --target install -j${CPU_COUNT}

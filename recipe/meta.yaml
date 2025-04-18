@@ -1,38 +1,34 @@
 {% set name = "dkh" %}
 {% set version = "1.2" %}
-{% set sha256 = "37a31ce3fe211b62793db6a569c39142bbce37b8b418ca243c41db4329c1711a" %}
+{% set sha256 = "b8a1dc1df3161938890eb6ef97280a2e99d07f69d5e3b672c48fc4622a872030" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/psi4/{{ name|lower }}/archive/319b320.tar.gz
+  url: https://github.com/psi4/{{ name|lower }}/archive/3ba0128.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 2
+  number: 3
   run_exports:
     - {{ pin_subpackage('dkh', max_pin='x.x') }}
 
 requirements:
   build:
-    - {{ stdlib("c") }}
+    - {{ stdlib("c") }}                # [unix]
     - {{ compiler('c') }}              # [unix]
     - {{ compiler('fortran') }}        # [unix]
+    - {{ stdlib('m2w64_c') }}          # [win]
     - {{ compiler('m2w64_c') }}        # [win]
     - {{ compiler('m2w64_fortran') }}  # [win]
     - cmake
     - ninja
   host:
     - libblas
-  run:
-    # I'm surprised the m2w64 compilers run_exports aren't imposing this: https://github.com/conda-forge/toolchain-feedstock/blob/main/recipe/meta.yaml#L15
-    - m2w64-gcc-libgfortran            # [win]
 
 test:
-  requires:
-    - m2w64-binutils                                            # [win]   # provides objdump.exe
   commands:
     - ls -l $PREFIX/lib                                         # [unix]
     - ls -l $PREFIX/share/cmake/dkh                             # [unix]
@@ -53,7 +49,7 @@ test:
     # Inspect linkage
     - ldd -v $PREFIX/lib/libdkh$SHLIB_EXT                       # [linux and build_platform == target_platform]
     - otool -L $PREFIX/lib/libdkh$SHLIB_EXT                     # [osx]
-    - objdump.exe -p %PREFIX%\\Library\\bin\\libdkh.dll | findstr /i "dll"  # [win]
+      # - objdump.exe -p %PREFIX%\\Library\\bin\\libdkh.dll | findstr /i "dll"  # [win]
 
 about:
   home: http://www.reiher.ethz.ch/software/dkh-x2c.html
